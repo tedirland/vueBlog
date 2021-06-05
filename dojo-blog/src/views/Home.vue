@@ -1,17 +1,18 @@
 <template>
   <div class="home">
-<h1>Home
-  <p ref="p">My name is {{name}} and my age is {{age}}</p>
-  <button @click="handleClick">Click meh</button>
-  <button @click="age++">Add 1 to age</button>
-  <input type="text" v-model="name">
-
-</h1>
+<h1>Home</h1>
+<h2>Refs</h2>
+<p>{{ninjaOne.name}} - {{ninjaOne.age}}</p>
+<button @click="updateNinjaOne">Update Ninja One</button>
+<h2>Reactive</h2>
+<p>{{ninjaTwo.name}} {{ninjaTwo.age}} - {{nameTwo}}</p>
+<button @click="updateNinjaTwo">Update Ninja Two</button>
   </div>
 </template>
 
 <script>
-import { ref } from '@vue/reactivity'
+import { ref, reactive } from '@vue/reactivity'
+import { vModelRadio } from '@vue/runtime-dom'
 // @ is an alias to /src
 
 
@@ -19,18 +20,22 @@ export default {
   name: 'Home',
   setup() {
 
-  const p  = ref('hello')
-  const name = ref('mario')
-  console.log(name)
-  const age = ref(30)
+ const ninjaOne = ref({name: 'mario', age:30})
+ //Drawbacks to using reactive:
+ //Can't do this: (can't use primitive values w/ reactives)
+ const nameTwo = reactive('luigi')
 
-  const handleClick = () => {
-   name.value=' luigi'
-   age.value = 35
+ const nameOne = ref('mario')
+ const ninjaTwo = reactive({name: 'luigi', age: 35})
 
-  }
-
-  return {name, age, handleClick, p}
+ const updateNinjaOne = () => {
+   ninjaOne.value.age = 40
+ }
+ const updateNinjaTwo = () => {
+   ninjaTwo.age=45
+   nameTwo = "mario"
+ }
+ return {ninjaOne, updateNinjaOne, ninjaTwo, updateNinjaTwo, nameOne, nameTwo}
   },
 
 
