@@ -1,7 +1,9 @@
 <template>
   <div class="home">
 <h1>Home</h1>
-<PostList :posts="posts" />
+<PostList v-if="showPosts" :posts="posts" />
+<button @click="showPosts = !showPosts">toggle posts</button>
+<button @click="posts.pop()">delete a post</button>
 <p></p>
   </div>
 </template>
@@ -22,7 +24,11 @@ export default {
 
  ])
 
- return {posts }
+
+
+ const showPosts = ref(true)
+
+ return {posts, showPosts }
   },
 
 
