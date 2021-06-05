@@ -1,48 +1,28 @@
 <template>
   <div class="home">
 <h1>Home</h1>
-<input type="text" v-model="search">
-<p>Search Term: {{search}}</p>
-<div v-for="name in matchingNames" :key="name">{{name}}</div>
-<button @click="handleClick">Stop Watching</button>
-
+<PostList :posts="posts" />
+<p></p>
   </div>
 </template>
 
 <script>
-import { ref, reactive } from '@vue/reactivity'
-import { computed, watch, watchEffect } from '@vue/runtime-dom'
-// @ is an alias to /src
+import { ref} from 'vue'
+import PostList from '../components/PostList.vue'
 
 
 export default {
   name: 'Home',
+  components: {PostList},
   setup() {
 
-  const search = ref('')
-  const names = ref(['mario', 'yoshi', 'luigi', 'toad', 'bowser', 'koopa', 'peach'])
+ const posts = ref([
+   {title: 'welcome to the blog', body: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima quos voluptas recusandae, facilis cumque fugit! Esse quam repellat necessitatibus possimus nisi autem modi, recusandae fugiat deleniti nihil tempora tenetur natus sint animi, delectus dicta blanditiis cumque voluptatum! Laudantium dicta eveniet aliquam. Optio nihil commodi iste placeat, dignissimos deserunt cum, architecto expedita nemo neque, beatae eos omnis deleniti rerum dolorum earum corporis. Dolores, totam? Quasi, natus? Blanditiis, dolorum quisquam deserunt reprehenderit quidem minus nemo harum sunt totam quaerat nostrum. Temporibus quia dicta eaque ducimus eligendi aliquid voluptas corporis praesentium? A voluptatum architecto corrupti officiis adipisci alias dolorum neque necessitatibus itaque maiores?' , id: 1},
+   {title: 'top 5 css tips', body: 'Lorem psum', id: 2},
 
-  const stopWatch = watch(search, () => {
-    console.log('watch function run')
-  })
+ ])
 
-//Most common usecase is to get data from a database
-  const stopEffect = watchEffect(() => {
-    console.log('watchEffect function ran', search.value)
-  })
-
-  const handleClick = () => {
-    stopWatch()
-    stopEffect()
-
-
-  }
-
-  const matchingNames = computed(() => {
-    return names.value.filter((name) => name.includes(search.value))
-  })
-
- return {names,search,matchingNames, handleClick }
+ return {posts }
   },
 
 
