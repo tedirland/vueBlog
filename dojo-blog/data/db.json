@@ -1,6 +1,7 @@
 {
   "posts": [
-    {"id": 1,
+    {
+      "id": 1,
       "title": "welcome to the new blog",
       "body": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum blanditiis, debitis eos dolore eligendi totam nostrum recusandae reiciendis, libero mollitia perferendis, placeat aliquam quae harum. Corrupti libero earum voluptatum nesciunt.",
       "tags": [
@@ -9,7 +10,8 @@
         "news"
       ]
     },
-    {"id": 2,
+    {
+      "id": 2,
       "title": "top 5 css tricks",
       "body": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum blanditiis, debitis eos dolore eligendi totam nostrum recusandae reiciendis, libero mollitia perferendis, placeat aliquam quae harum. Corrupti libero earum voluptatum nesciunt.",
       "tags": [
@@ -17,8 +19,16 @@
         "css",
         "coding"
       ]
+    },
+    {
+      "title": "New Post",
+      "body": "hfhdfhfhdh",
+      "tags": [
+        "html",
+        "new",
+        "webdev"
+      ],
+      "id": 3
     }
   ]
 }
-
-

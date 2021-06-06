@@ -1,15 +1,12 @@
 import { ref } from 'vue';
 
-const getPost = id => {
+const createPost = id => {
   const post = ref(null);
   const error = ref(null);
 
   const load = async () => {
     try {
-      await new Promise(resolve => {
-        setTimeout(resolve, 2000);
-      });
-      let data = await fetch('http://localhost:3000/posts/' + id);
+      let data = await post('http://localhost:3000/posts/');
       if (!data.ok) {
         throw Error('that post does not exist');
       }
@@ -22,4 +19,4 @@ const getPost = id => {
   return { post, error, load };
 };
 
-export default getPost;
+export default createPost;
