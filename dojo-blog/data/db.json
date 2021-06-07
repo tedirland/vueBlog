@@ -37,6 +37,20 @@
         "rubbish"
       ],
       "id": 4
+    },
+    {
+      "title": "Levi is the bomb.com",
+      "body": "I love my poochie so darn much!",
+      "tags": [],
+      "id": 5
+    },
+    {
+      "title": "Levi",
+      "body": "Loves kitties",
+      "tags": [
+        "poochies"
+      ],
+      "id": 6
     }
   ]
 }
